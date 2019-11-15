@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+<!-- For title -->
+{% block title %}
+{% endblock %}
+<!-- For style -->
+{% block stylesheet %}
+{% endblock %}
+
+<!-- for profile -->
+{% block profile %}
+{% endblock %}
+
+<!-- for Contan -->
+{% block content %}
+           <h1> Pubication Name: {{pub_name}} </h1>
+
+            
+        <table class="table table-striped">
+        <thead>
+            <tr>
+            <th scope="col"> Book Name </th>
+            <th scope="col">Author name</th>
+            <th scope="col">Category</th>
+            </tr>
+        </thead>
+
+         <tbody>
+
+
+
+    
+        {% for book in pubs_books %}
+    
+        <tr>
+        <td><a href="{% url 'book_details' book.id %}">{{book.name}}</a></td>
+        <td> <a href="{% url 'author_book' book.book_author %}">{{book.book_author}}</a></td>
+        <td> <a href="{% url 'category_book' book.category %}">{{book.category}}</a></td>
+        </tr>
+        {% endfor %}
+
+
+        </tbody>
+    </table>
+       
+    </ul
+{% endblock %}
+
+<!-- for javascript -->
+{% block script %}
+{% endblock %}

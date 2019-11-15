@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+<!-- For title -->
+{% block title %}
+{% endblock %}
+<!-- For style -->
+{% block stylesheet %}
+{% endblock %}
+
+<!-- for profile -->
+{% block profile %}
+{% endblock %}
+
+<!-- for Contan -->
+{% block content %}
+            <h1>Author Book: {{book_autor_name}}</h1>
+   
+     <table class="table table-striped">
+    <thead>
+        <tr>
+        <th scope="col"> Book Name </th>
+        <th scope="col">Category</th>
+        <th scope="col">Publications</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        {% for book in auth_books %}
+
+        <tr>
+        <td><a href="{% url 'book_details' book.id %}">{{book.name}}</a></td>
+        <td> <a href="{% url 'category_book' book.category %}">{{book.category}}</a></td>
+        <td> <a href="{% url 'publisar_book' book.publisher %}">{{book.publisher}}</a></td>
+        </tr>
+        {% endfor %}
+
+
+    </tbody>
+    </table>
+ 
+{% endblock %}
+
+<!-- for javascript -->
+{% block script %}
+{% endblock %}

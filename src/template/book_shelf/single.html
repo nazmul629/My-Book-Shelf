@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+<!-- For title -->
+{% block title %}
+Single Book 
+{% endblock %}
+<!-- For style -->
+{% block stylesheet %}
+{% endblock %}
+
+<!-- for profile -->
+{% block profile %}
+{% endblock %}
+
+<!-- for Contan -->
+{% block content %}
+
+	<a href="#" class="fh5co-post-prev"><span><i class="icon-chevron-left"></i> Prev</span></a>
+	<a href="#" class="fh5co-post-next"><span>Next <i class="icon-chevron-right"></i></span></a>
+	<!-- END #fh5co-header -->
+	<div class="container-fluid">
+		<div class="row fh5co-post-entry single-entry">
+			<article class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+
+				<figure>
+					<a href="single.html"><img src="{{ book.pictur.url }}" alt="Image" class="img-responsive"></a>
+				</figure>
+				<span class="fh5co-meta fh5co-date"> ক্যাটাগরিঃ <a href="{% url 'category_book' book.category %}"> {{book.category}}</a></span>
+				<span class="fh5co-meta fh5co-date"> পাবলিশারঃ <a href="{% url 'publisar_book' book.publisher%}"> {{book.publisher}}</a></span>
+				<span class="fh5co-meta fh5co-date"> লেখকঃ <a href="{% url 'author_book' book.book_author%}"> {{book.book_author}}</a>
+				<h4 class="fh5co-article-title"><a href=""> নামঃ {{ book.name }}</a></h4>
+				<span class="fh5co-meta fh5co-date"> দামঃ {{book.price}}</span>
+				<span class="fh5co-meta fh5co-date"> স্ট্যাটাসঃ {{book.status}}</span>
+				<span class="fh5co-meta fh5co-date"> টারগেটঃ {{book.target_date}}</span>
+				<span class="fh5co-meta fh5co-date"> আপডেটঃ {{book.update_on}}</span>
+			</article>
+		</div>
+	</div>
+
+{% endblock %}
+                  
+<!-- for javascript -->
+{% block script %}
+{% endblock %}

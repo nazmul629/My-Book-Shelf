@@ -7,13 +7,37 @@
 	{% endblock %}
 
 	{% block content %}
+<h2> BooK's</h2>
+
+		{% for book in need_read %}
+			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+				<figure>
+					<a href="{% url 'book_details' book.id%}"><img src="{{ book.pictur.url }}" alt="Image" class="img-responsive"></a>
+				</figure>
+				<span class="fh5co-meta fh5co-date"> ক্যাটাগরিঃ <a href="{% url 'category_book' book.category%}"> {{book.category}}</a></span>
+				<span class="fh5co-meta fh5co-date"> পাবলিশারঃ <a href="{% url 'publisar_book' book.publisher%}"> {{book.publisher}}</a></span>
+				<span class="fh5co-meta fh5co-date"> লেখকঃ <a href="{% url 'author_book' book.book_author%}"> {{book.book_author}}</a>
+				<h2 class="fh5co-article-title"><a href=""> নামঃ {{ book.name }}</a></h2>
+				<span class="fh5co-meta fh5co-date"> দামঃ {{book.price}}</span>
+				<span class="fh5co-meta fh5co-date"> স্ট্যাটাসঃ {{book.status}}</span>
+				<span class="fh5co-meta fh5co-date"> টারগেটঃ {{book.target_date}}</span>
+				<span class="fh5co-meta fh5co-date"> আপডেটঃ {{book.update_on}}</span>
+			</article>
+
+		{% endfor %}
+			<div class="clearfix visible-lg-block visible-md-block visible-sm-block visible-xs-block"></div>
+	
+			<div class="clearfix visible-xs-block"></div>
+		 {% endblock %}
+
 
 <div class="row">
+
   <div class="col-sm-4">
 	<h2> Category</h2>
 		<ul>
 		{% for category in book_category %}
-			<a href="">	<li>{{category.name}}</li></a>
+			<a href="{% url 'category_book' category.name %}">	<li>{{category.name}}</li></a>
 		{% endfor %}
 		</ul>
   </div>
@@ -21,7 +45,7 @@
 	<h2> Writer</h2>
 		<ul>
 		{% for auth in book_auth %}
-			<a href="">	<li>{{auth.name}}</li></a>
+			<a href="{% url 'author_book' auth.name%}">	<li>{{auth.name}}</li></a>
 		{% endfor %}
 		</ul>
   </div>
@@ -30,7 +54,7 @@
 	<h2> Publisher</h2>
 		<ul>
 			{% for publisher in book_publisher %}
-				<a href="">	<li>{{publisher.name}}</li></a>
+				<a href="{% url 'publisar_book' publisher.name%}">	<li>{{publisher.name}}</li></a>
 			{% endfor %}
 
 		</ul>
@@ -60,7 +84,8 @@
 			<div class="clearfix visible-lg-block visible-md-block visible-sm-block visible-xs-block"></div>
 	
 			<div class="clearfix visible-xs-block"></div>
-		 {% endblock %}
+
+	
 
 	{% block script %}
 

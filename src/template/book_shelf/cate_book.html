@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+<!-- For title -->
+{% block title %}
+{% endblock %}
+<!-- For style -->
+{% block stylesheet %}
+{% endblock %}
+
+<!-- for profile -->
+{% block profile %}
+{% endblock %}
+
+<!-- for Contan -->
+{% block content %}
+           <h1> Category Book : {{ cate_name }} </h1>
+    <ul>
+
+
+
+    <table class="table table-striped">
+    <thead>
+        <tr>
+        <th scope="col"> Book Name </th>
+        <th scope="col">Author name</th>
+        <th scope="col">Publications</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for book in cate_books %}
+        <tr>
+        <td><a href="{% url 'book_details' book.id %}">{{book.name}}</a></td>
+        <td> <a href="{% url 'author_book' book.book_author %}">{{book.book_author}}</a></td>
+        <td> <a href="{% url 'publisar_book' book.publisher %}">{{book.publisher}}</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+
+{% endblock %}
+
+<!-- for javascript -->
+{% block script %}
+{% endblock %}
