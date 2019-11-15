@@ -50,8 +50,14 @@ def category_book(request,book_cate):
 
 def book_details(request,id):
     books = NeedToRead.objects.get(id=id)
+    first = NeedToRead.objects.first()
+    last = NeedToRead.objects.last()
+    related = NeedToRead.objects.filter(category=books.category).exclude(id=id)
     context = {
-        "book" : books
+        "book" : books,
+        "first":first,
+        "last":last,
+        "related":related
     }
     return render(request,'book_shelf/single.html',context)
 
